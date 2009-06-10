@@ -53,6 +53,8 @@ namespace WikiNotes
             set
             {
                 _backlinks = value;
+                txtJump.AutoCompleteCustomSource.Clear();
+                foreach(string v in _backlinks) txtJump.AutoCompleteCustomSource.Add(v);
             }
         }
 
@@ -113,6 +115,34 @@ namespace WikiNotes
         private void btnPreviousPage_Click(object sender, EventArgs e)
         {
             LoadPage(prevPage);
+        }
+
+        private void OnJumpEntered(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            
+            if(!txtJump.AutoCompleteCustomSource.Contains(txtJump.Text))
+            {
+                txtJump.BackColor = Color.Red;
+            }
+            else
+            {
+                LoadPage(txtJump.Text);
+                txtJump.Text = String.Empty;
+            }
+        }
+
+        private void txtJump_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(txtJump.Text))
+            {
+                ResetSearchTextbox();
+            }
+        }
+
+        private void ResetSearchTextbox()
+        {
+            txtJump.BackColor = Color.LightSkyBlue;
         }
     }
 }

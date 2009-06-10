@@ -32,6 +32,7 @@
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.rtbMain = new System.Windows.Forms.RichTextBox();
             this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.txtJump = new System.Windows.Forms.TextBox();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tlpMain.Controls.Add(this.rtbMain, 0, 0);
             this.tlpMain.Controls.Add(this.btnPreviousPage, 0, 1);
+            this.tlpMain.Controls.Add(this.txtJump, 1, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -82,6 +84,21 @@
             this.btnPreviousPage.UseVisualStyleBackColor = true;
             this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
             // 
+            // txtJump
+            // 
+            this.txtJump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtJump.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtJump.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtJump.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtJump.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJump.ForeColor = System.Drawing.Color.Black;
+            this.txtJump.Location = new System.Drawing.Point(354, 366);
+            this.txtJump.Name = "txtJump";
+            this.txtJump.Size = new System.Drawing.Size(182, 20);
+            this.txtJump.TabIndex = 3;
+            this.txtJump.TextChanged += new System.EventHandler(this.txtJump_TextChanged);
+            this.txtJump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnJumpEntered);
+            // 
             // frmWiki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,6 +108,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmWiki";
             this.tlpMain.ResumeLayout(false);
+            this.tlpMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -100,6 +118,7 @@
         private System.Windows.Forms.RichTextBox rtbMain;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.Button btnPreviousPage;
+        private System.Windows.Forms.TextBox txtJump;
     }
 }
 
