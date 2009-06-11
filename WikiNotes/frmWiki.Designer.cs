@@ -67,6 +67,7 @@
             this.rtbMain.Size = new System.Drawing.Size(527, 334);
             this.rtbMain.TabIndex = 0;
             this.rtbMain.Text = "";
+            this.rtbMain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbMain_KeyDown);
             this.rtbMain.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.OnLinkClicked);
             this.rtbMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.rtbMain.TextChanged += new System.EventHandler(this.rtbMain_TextChanged);
@@ -96,7 +97,6 @@
             this.txtJump.Location = new System.Drawing.Point(347, 8);
             this.txtJump.Name = "txtJump";
             this.txtJump.Size = new System.Drawing.Size(182, 21);
-            this.txtJump.Text = DefaultSearchTerm;
             this.txtJump.TabIndex = 3;
             this.txtJump.WordWrap = false;
             this.txtJump.TextChanged += new System.EventHandler(this.txtJump_TextChanged);

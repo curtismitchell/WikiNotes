@@ -12,10 +12,12 @@ namespace WikiNotes
         private Controller controller;
         private bool isFormatting;
         private string prevPage;
-        private const string DefaultSearchTerm = "[Search for a Page]";
+        private const string DefaultSearchTerm = "[Type to search for a page]";
         public frmWiki()
         {
             InitializeComponent();
+            this.txtJump.Text = DefaultSearchTerm;
+
             controller = new Controller();
             controller.View = this;
             controller.Model = new Page(); // Default page
@@ -107,6 +109,13 @@ namespace WikiNotes
 
         private void OnMouseClick(object sender, MouseEventArgs e)
         {
+            //TODO: make sure the mousepointer is where the cursor is to prevent accidental navigation
+            // rtbMain.GetCharIndexFromPosition(e.Location);
+            if(e.Button == MouseButtons.Left) OpenCurrentWikiWord();            
+        }
+
+        private void OpenCurrentWikiWord()
+        {
             if (rtbMain.SelectionColor == Color.Blue)
             {
                 controller.HandleWikiWordClick(rtbMain.SelectionStart);
@@ -154,6 +163,14 @@ namespace WikiNotes
         private void OnLeavingSearchbox(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtJump.Text)) txtJump.Text = DefaultSearchTerm;
+        }
+
+        private void rtbMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && e.Modifiers == Keys.Alt)
+            {
+                OpenCurrentWikiWord();
+            }
         }
     }
 }

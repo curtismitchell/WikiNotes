@@ -12,6 +12,7 @@
     <AssemblyName>WikiNotes</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>document.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -88,6 +89,8 @@
     <Compile Include="WikiWord.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="briefcase.ico" />
+    <Content Include="bubble.ico" />
     <Content Include="document.ico" />
     <Content Include="left.ico" />
     <Content Include="README.txt" />
