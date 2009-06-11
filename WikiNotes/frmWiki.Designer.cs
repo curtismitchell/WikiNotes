@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWiki));
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.rtbMain = new System.Windows.Forms.RichTextBox();
-            this.btnPreviousPage = new System.Windows.Forms.Button();
-            this.txtJump = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtJump = new System.Windows.Forms.TextBox();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,36 +71,6 @@
             this.rtbMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.rtbMain.TextChanged += new System.EventHandler(this.rtbMain_TextChanged);
             // 
-            // btnPreviousPage
-            // 
-            this.btnPreviousPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPreviousPage.BackgroundImage")));
-            this.btnPreviousPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPreviousPage.Enabled = false;
-            this.btnPreviousPage.Location = new System.Drawing.Point(2, 8);
-            this.btnPreviousPage.Name = "btnPreviousPage";
-            this.btnPreviousPage.Size = new System.Drawing.Size(75, 23);
-            this.btnPreviousPage.TabIndex = 2;
-            this.btnPreviousPage.Text = "Previous";
-            this.btnPreviousPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPreviousPage.UseVisualStyleBackColor = true;
-            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
-            // 
-            // txtJump
-            // 
-            this.txtJump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtJump.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtJump.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtJump.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.txtJump.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJump.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJump.ForeColor = System.Drawing.Color.White;
-            this.txtJump.Location = new System.Drawing.Point(347, 8);
-            this.txtJump.Name = "txtJump";
-            this.txtJump.Size = new System.Drawing.Size(182, 21);
-            this.txtJump.TabIndex = 3;
-            this.txtJump.TextChanged += new System.EventHandler(this.txtJump_TextChanged);
-            this.txtJump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnJumpEntered);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
@@ -113,6 +83,42 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
             this.panel1.Size = new System.Drawing.Size(533, 39);
             this.panel1.TabIndex = 4;
+            // 
+            // txtJump
+            // 
+            this.txtJump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtJump.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtJump.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtJump.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtJump.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJump.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJump.ForeColor = System.Drawing.Color.White;
+            this.txtJump.Location = new System.Drawing.Point(347, 8);
+            this.txtJump.Name = "txtJump";
+            this.txtJump.Size = new System.Drawing.Size(182, 21);
+            this.txtJump.Text = DefaultSearchTerm;
+            this.txtJump.TabIndex = 3;
+            this.txtJump.WordWrap = false;
+            this.txtJump.TextChanged += new System.EventHandler(this.txtJump_TextChanged);
+            this.txtJump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnJumpEntered);
+            this.txtJump.Leave += new System.EventHandler(this.OnLeavingSearchbox);
+            this.txtJump.Enter += new System.EventHandler(this.OnEnteringSearchbox);
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.AutoSize = true;
+            this.btnPreviousPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPreviousPage.BackgroundImage")));
+            this.btnPreviousPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnPreviousPage.Enabled = false;
+            this.btnPreviousPage.Location = new System.Drawing.Point(2, 8);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.btnPreviousPage.Size = new System.Drawing.Size(75, 23);
+            this.btnPreviousPage.TabIndex = 2;
+            this.btnPreviousPage.Text = "Previous";
+            this.btnPreviousPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
             // 
             // frmWiki
             // 

@@ -12,7 +12,7 @@ namespace WikiNotes
         private Controller controller;
         private bool isFormatting;
         private string prevPage;
-
+        private const string DefaultSearchTerm = "[Search for a Page]";
         public frmWiki()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace WikiNotes
                 if (!String.IsNullOrEmpty(this.Text))
                 {
                     btnPreviousPage.Enabled = true;
+                    btnPreviousPage.Text = this.Text;                    
                     prevPage = this.Text;
                 }
 
@@ -143,6 +144,16 @@ namespace WikiNotes
         private void ResetSearchTextbox()
         {
             txtJump.BackColor = Color.LightSkyBlue;
+        }
+
+        private void OnEnteringSearchbox(object sender, EventArgs e)
+        {
+            if (txtJump.Text.Equals(DefaultSearchTerm)) txtJump.Text = String.Empty;
+        }
+
+        private void OnLeavingSearchbox(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtJump.Text)) txtJump.Text = DefaultSearchTerm;
         }
     }
 }
